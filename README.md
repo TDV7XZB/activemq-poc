@@ -28,3 +28,13 @@ spring.activemq.broker-url: "ssl://b-4c49c754-b8f9-4ec4-8fa7-7747d9b65a8f-1.mq.e
 
 ActiveMQ console will be available at https://b-4c49c754-b8f9-4ec4-8fa7-7747d9b65a8f-1.mq.eu-west-1.amazonaws.com:8162/
 Console credentials are the same ones as in the project properties.
+
+
+### Operation
+Rest request
+cUrl:
+
+curl --location 'http://localhost:8081/trigger/8080'
+
+If trying to simulate an error:
+src/main/kotlin/com/ms/kafka/demo/consumer/JmsConsumer.kt - Row 47 - change from GET to POST
