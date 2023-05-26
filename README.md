@@ -1,7 +1,7 @@
 # activemq-poc
 
 ### Requirements
-*Note: It was run with the versions below, will probably work with other minor versions
+*Note: It was ran with the versions below, will probably work with other minor versions
 - Java 11.0.9.101
 - Maven 3.9.0
 - Docker if ran with a local message broker
