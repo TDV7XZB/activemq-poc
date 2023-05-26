@@ -1,0 +1,54 @@
+version: '3.3'
+
+networks:
+  integration:
+    driver: "bridge"
+
+services:
+#  postgresql:
+#    container_name: postgresql
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile.postgresql
+#    networks:
+#      - "integration"
+#    environment:
+#      - "POSTGRES_MULTIPLE_DATABASES=kafka"
+#      - "POSTGRES_USER=carnet"
+#      - "POSTGRES_PASSWORD=carnet"
+#    ports:
+#      - "54321:5432"
+#    restart: always
+#  activemq:
+#    container_name: activemq
+#    networks:
+#      - "integration"
+#    image: 'islandora/activemq:main'
+#    ports:
+#      - '1883:1883'
+#      - '5672:5672'
+#      - '8161:8161'
+#      - '61613:61613'
+#      - '61614:61614'
+#      - '61616:61616'
+#    environment:
+#      - ACTIVEMQ_USER=admin
+#      - ACTIVEMQ_PASSWORD=password
+#      - ACTIVEMQ_WEB_ADMIN_NAME=admin
+#      - ACTIVEMQ_WEB_ADMIN_PASSWORD=password
+#      - ACTIVEMQ_WEB_ADMIN_ROLES=admin
+  activemq:
+    container_name: activemq
+    networks:
+      - "integration"
+    image: 'rmohr/activemq:5.15.9'
+    ports:
+      - '1883:1883'
+      - '5672:5672'
+      - '8161:8161'
+      - '61613:61613'
+      - '61614:61614'
+      - '61616:61616'
+    volumes:
+      - ./data/activemq/conf/activemq.xml:/opt/activemq/conf/activemq.xml
+#      - ./data/activemq/data:/opt/activemq/data
